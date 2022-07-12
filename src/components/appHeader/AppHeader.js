@@ -2,6 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import "./appHeader.scss";
 
 const AppHeader = () => {
+  let activeStyle = {
+    color: "#9f0013",
+  };
+
   return (
     <header className="app__header">
       <h1 className="app__title">
@@ -12,11 +16,25 @@ const AppHeader = () => {
       <nav className="app__menu">
         <ul>
           <li>
-            <Link to="/">Characters</Link>
+            <NavLink
+              to="/"
+              style={({ isActive }) =>
+                isActive ? activeStyle : { color: "black" }
+              }
+            >
+              Characters
+            </NavLink>
           </li>
           /
           <li>
-            <Link to="/comics">Comics</Link>
+            <NavLink
+              to="/comics"
+              style={({ isActive }) =>
+                isActive ? activeStyle : { color: "black" }
+              }
+            >
+              Comics
+            </NavLink>
           </li>
         </ul>
       </nav>
